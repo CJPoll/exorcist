@@ -1,5 +1,5 @@
 import unittest
 
-class TestTheTruth():
+class TestTheTruth(unittest.TestCase):
     def test_truth(self):
             self.assertTrue(True)
