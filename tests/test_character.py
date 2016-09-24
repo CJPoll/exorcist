@@ -7,27 +7,27 @@ class TestCharacter(unittest.TestCase):
         self.character._xp = 250
         self.body = Character.BODY_STAT_NAME
 
-    def test_add_xp(self):
+    def test_increase_xp(self):
         self.character.increaseXP(250)
         self.assertEqual(self.character.currentXP(), 500)
 
-    def test_remove_xp(self):
+    def test_decrease_xp(self):
         self.character.decreaseXP(250)
         self.assertEqual(self.character.currentXP(), 0)
 
-    def test_increase_stat(self):
+    def test_increase_base_stat(self):
         self.character.increaseBaseStat(self.body, 5)
         self.assertEqual(self.character.baseStat(self.body), 10)
 
-    def test_decrease_stat(self):
+    def test_decrease_base_stat(self):
         self.character.decreaseBaseStat(self.body, 5)
         self.assertEqual(self.character.baseStat(self.body), 0)
 
-    def test_buff_stat(self):
+    def test_increase_buff(self):
         self.character.increaseBuff(self.body, 5)
         self.assertEqual(self.character.currentBuff(self.body), 5)
 
-    def test_debuff_stat(self):
+    def test_decrease_buff(self):
         self.character.increaseBuff(self.body, 5)
         self.character.decreaseBuff(self.body, 3)
         self.assertEqual(self.character.currentBuff(self.body), 2)
