@@ -19,7 +19,7 @@ class TestCharacter(unittest.TestCase):
         self.character.increaseBaseStat(self.body, 5)
         self.assertEqual(self.character.baseStat(self.body), 5)
 
-    def test_increase_stat(self):
+    def test_decrease_stat(self):
         self.character.decreaseBaseStat(self.body, 5)
         self.assertEqual(self.character.baseStat(self.body), 0)
 
