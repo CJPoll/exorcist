@@ -31,7 +31,7 @@ class Character:
     def buffStat(self, stat, amount):
         self.statBuffs[stat] += amount
 
-    def buffsOn(self, stat):
+    def buffAmount(self, stat):
         return self.statBuffs[stat]
 
     def debuffStat(self, stat, amount):
