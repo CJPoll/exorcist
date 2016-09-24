@@ -1,7 +1,5 @@
 import unittest
 
-from helpers.parameterized_tests import ParameterizedTest
-
-class TestTheTruth(ParameterizedTest):
+class TestTheTruth():
     def test_truth(self):
             self.assertTrue(True)
