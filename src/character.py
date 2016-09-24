@@ -22,8 +22,8 @@ class Character:
         }
         self.currentLife = self.maxLife()
 
-    def addXP(self, xp):
-        self.xp += xp
+    def addXP(self, amount):
+        self.xp += amount
 
     def baseStat(self, stat):
         return self.baseStats[stat]
@@ -55,8 +55,8 @@ class Character:
         body = self.statValue(self.BODY_STAT_NAME)
         return body * self.MAX_LIFE_BODY_RATIO
 
-    def removeXP(self, xp):
-        self.xp -= xp
+    def removeXP(self, amount):
+        self.xp -= amount
 
     def statValue(self, stat):
         base = self.baseStat(stat)

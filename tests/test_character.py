@@ -58,4 +58,3 @@ class TestCharacter(unittest.TestCase):
         self.assertEqual(self.character.currentLife, 20)
         self.character.heal(10)
         self.assertEqual(self.character.currentLife, 25)
-
