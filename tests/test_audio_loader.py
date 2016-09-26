@@ -18,6 +18,9 @@ class TestMixer(unittest.TestCase):
         audio_loader.eightChannels()
         self.assertEqual(audio_loader.mixer.get_num_channels(), 8)
 
+    def testSoundObjectFromFile(self):
+        track = audio_loader.createSoundObject("testtrack.wav")
+        self.assertTrue(track)
 
 if __name__ == "__main__":
     unittest.main()
