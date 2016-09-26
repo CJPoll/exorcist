@@ -35,15 +35,15 @@ class TestActorInventory(unittest.TestCase):
 		self.assertFalse(self.inventory.contains(axe))
 
 	def test_iterable(self):
-		self.inventory.add(1)
-		self.inventory.add(2)
-		doubles = map(lambda x: x * 2, self.inventory)
-		self.assertEqual(doubles, [2, 4])
+		self.inventory.add(TestItem("Mighty Axe"))
+		self.inventory.add(TestItem("Mighty Sword"))
+		doubles = map(lambda item: item.name, self.inventory)
+		self.assertTrue("Mighty Sword" in doubles)
+		self.assertTrue("Mighty Axe" in doubles)
 
 	def test_max_size(self):
-		axe = TestItem("Mighty Axe")
-		self.inventory.add(axe)
-		self.inventory.add(axe)
-		self.inventory.add(axe)
+		self.inventory.add(TestItem("Mighty Axe"))
+		self.inventory.add(TestItem("Mighty Shield"))
+		self.inventory.add(TestItem("Mighty Helm"))
 		with self.assertRaises(InventoryFullException):
-			self.inventory.add(axe)
+			self.inventory.add(TestItem("Mighty Sword"))
