@@ -19,7 +19,7 @@ class TestMixer(unittest.TestCase):
         self.assertEqual(audio_loader.mixer.get_num_channels(), 8)
 
     def testSoundObjectFromFile(self):
-        track = audio_loader.createSoundObject("testtrack.wav")
+        track = audio_loader.createSoundObject("o_nata_lux.wav")
         self.assertTrue(track)
 
 if __name__ == "__main__":

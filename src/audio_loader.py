@@ -1,39 +1,36 @@
-from pygame import mixer
 import pygame
 import os, time
 
 def initMixer():
-    if (mixer.get_init() == None):
+    if (pygame.mixer.get_init() == None):
         pygame.init()
-        mixer.init()
+        pygame.mixer.init()
 
 
 def quitMixer():
-    if (mixer.get_init() != None):
-        mixer.quit()
+    if (pygame.mixer.get_init() != None):
+        pygame.mixer.quit()
 
 def eightChannels():
-    if (mixer.get_num_channels() != 8):
-        mixer.set_num_channels(8)
+    if (pygame.mixer.get_num_channels() != 8):
+        pygame.mixer.set_num_channels(8)
 
 def playTrack(trackname):
     #Tried it through the music module.
-    returnDirectory = os.getcwd()
-    os.chdir("./assets/audio/")
-    mixer.music.load(trackname)
-    mixer.music.play()
-    os.chdir(returnDirectory)
+    pygame.mixer.music.load("./assets/audio/soundtrack/" + trackname)
+    pygame.mixer.music.play()
 
-def createSoundObject(trackname):
-    # Tried it through a Sound Object.
-    returnDirectory = os.getcwd()
-    os.chdir("./assets/audio/")
-    track = mixer.Sound(trackname)
-    channel = mixer.Channel(1)
-    channel.play(track)
-    os.chdir(returnDirectory)
+def playSound(trackname):
+    robot = pygame.mixer.Sound("./assets/audio/sound_effects/" + trackname)
+    robot.play()
 
 if __name__ == "__main__":
     initMixer()
     eightChannels()
-    createSoundObject("testtrack.wav")
+    playTrack("o_nata_lux.wav")
+    playing = True
+    while playing:
+        playing = pygame.mixer.music.get_busy()
+
+    playSound('Hello.mp3')
+
