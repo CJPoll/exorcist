@@ -32,5 +32,9 @@ if __name__ == "__main__":
     while playing:
         playing = pygame.mixer.music.get_busy()
 
+    # mp3 not supported
     playSound('Hello.mp3')
+    playing = True
+    while playing:
+        playing = pygame.mixer.get_busy()
 
