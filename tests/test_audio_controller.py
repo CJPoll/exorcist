@@ -1,5 +1,5 @@
 import unittest
-import src.audio_loader as audio_loader
+import src.audio_controller as audio_loader
 
 class TestMixerInit(unittest.TestCase):
     def testInit(self):
