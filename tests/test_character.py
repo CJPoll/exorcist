@@ -1,11 +1,12 @@
 import unittest
 from src.character import Character
+from src.enums import Stats
 
 class TestCharacter(unittest.TestCase):
 	def setUp(self):
 		self.character = Character()
 		self.character._xp = 250
-		self.body = Character.BODY_STAT_NAME
+		self.body = Stats.BODY
 
 	def test_increase_xp(self):
 		self.character.increaseXP(250)
