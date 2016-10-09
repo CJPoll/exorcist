@@ -3,6 +3,10 @@ import events
 import sfx_player
 import soundtrack_player
 
+# Will expand dict as events are fleshed out.
+options = {"Area Change": soundtrack_player.select_track,
+           "Battle Start": soundtrack_player.select_track,
+           "Battle Event": sfx_player.select_sound}
 
 def init_mixer():
     if pygame.mixer.get_init() is None:
@@ -22,13 +26,8 @@ def eight_channels():
 
 def update():
     for event in events.queue:
-        # Will expand dict as events are fleshed out.
-        options = {"Area Change": soundtrack_player.select_track,
-                   "Battle Start": soundtrack_player.select_track,
-                   "Battle Event": sfx_player.select_sound}
-
-        if event in options.keys():
-            options[event]()
+        if event.type in options:
+            options[event.type]()
 
 
 if __name__ == "__main__":
