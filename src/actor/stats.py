@@ -1,20 +1,20 @@
-from src.enums import Stats
+from src.actor.stat_names import StatNames
 
-class Character:
+class ActorStats:
 	MAX_LIFE_BODY_RATIO=5
 	STARTING_STAT_VALUE=5
 
 	def __init__(self):
 		self._xp = 0
 		self._baseStats = {
-			Stats.BODY : self.STARTING_STAT_VALUE,
-			Stats.MIND : self.STARTING_STAT_VALUE,
-			Stats.SOUL : self.STARTING_STAT_VALUE
+			StatNames.BODY : self.STARTING_STAT_VALUE,
+			StatNames.MIND : self.STARTING_STAT_VALUE,
+			StatNames.SOUL : self.STARTING_STAT_VALUE
 		}
 		self._statBuffs = {
-			Stats.BODY : 0,
-			Stats.MIND : 0,
-			Stats.SOUL : 0
+			StatNames.BODY : 0,
+			StatNames.MIND : 0,
+			StatNames.SOUL : 0
 		}
 		self._currentLife = self.maxLife()
 
@@ -59,7 +59,7 @@ class Character:
 		self._currentLife -= amount
 
 	def maxLife(self):
-		body = self.currentStatValue(Stats.BODY)
+		body = self.currentStatValue(StatNames.BODY)
 		return body * self.MAX_LIFE_BODY_RATIO
 
 	def currentXP(self):
