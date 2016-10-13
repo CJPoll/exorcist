@@ -1,7 +1,5 @@
 import collections
 from src.actor.equipment_type import EquipmentType
-from src.actor.stat_names import StatNames
-
 
 Equipment = collections.namedTuple('Equipment','name image body mind soul type');
 
@@ -22,8 +20,8 @@ class EquipmentManager():
 		else:
 			actor.weapon = NOTHING
 		return actor	
-
-	def sumEquipent(actor):
+ 
+	def sumEquipment(actor):
 		weapon = actor.weapon
 		armor = actor.armor
 		mind = weapon.mind + armor.mind
