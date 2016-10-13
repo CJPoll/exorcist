@@ -4,9 +4,9 @@ from src.actor.equipment_type import EquipmentType
 Equipment = collections.namedTuple('Equipment','name image body mind soul type');
 
 class EquipmentManager():
-	NOTHING = Equipment("Nothing","nothing.png",0,0,0)
+	NOTHING = Equipment("Nothing","nothing.png",0,0,0,"")
 
-	def equipArmor(actor,equipment):
+	def equip(actor,equipment):
 		if(equipment.type == EquipmentType.ARMOR):
 			actor.armor = equipment
 		else:
